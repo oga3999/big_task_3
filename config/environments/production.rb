@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'https://github.com/oga3999/big_task_3.git' }
+  config.action_mailer.default_url_options = { host: 'http://13.114.116.88/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
