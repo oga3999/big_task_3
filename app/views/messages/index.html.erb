@@ -5,7 +5,7 @@
       <%= link_to '以前のメッセージ', '?m=all' %>
     <% end %>
 
-    <% @messages.each do |message| %>
+    <% @messages.order('created_at').each do |message| %>
       <div class="ui segment">
         <% if message.body %>
           <% if message.user.id == current_user.id %>

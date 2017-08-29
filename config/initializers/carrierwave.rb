@@ -12,10 +12,10 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 'topicup-data-production'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/topicup-data-production'
+      config.fog_directory = 'big-task-3-production'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/big-task-3-production'
     when 'development'
-      config.fog_directory = 'topicup-data-development'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/topicup-data-development'
+      config.fog_directory = 'big-task-3-development'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/big-task-3-development'
   end
 end

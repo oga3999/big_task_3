@@ -67,27 +67,27 @@ class User < ActiveRecord::Base
     SecureRandom.uuid
   end
 
-  def update_with_password(params, *options)
-    if provider.blank?
-      super
-    else
-      params.delete :current_password
-      update_without_password(params, *options)
-    end
-  end
+  # def update_with_password(params, *options)
+  #   if provider.blank?
+  #     super
+  #   else
+  #     params.delete :current_password
+  #     update_without_password(params, *options)
+  #   end
+  # end
 
   # allow users to update their accounts without passwords
-  # def update_without_current_password(params, *options)
-  #   params.delete(:current_password)
-  #
-  #   if params[:password].blank? && params[:password_confirmation].blank?
-  #     params.delete(:password)
-  #     params.delete(:password_confirmation)
-  #   end
-  #
-  #   result = update_attributes(params, *options)
-  #   clean_up_passwords
-  #   result
-  # end
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 
 end
