@@ -1,6 +1,6 @@
 <div class="topics-box container">
   <h2>Topics一覧</h2>
-  <% @topics.each do |topic| %>
+  <% @topics.order('created_at').each do |topic| %>
       <div class="col-md-8 col-md-offset-2 col-sm-10">
         <div class="topics-index-box">
           <div class="title-box">
