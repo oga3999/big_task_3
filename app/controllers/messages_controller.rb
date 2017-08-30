@@ -28,6 +28,10 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.build(message_params)
     if @message.save
       redirect_to conversation_messages_path(@conversation)
+    else
+      @user = @conversation.target_user(current_user)
+      @messages = @conversation.messages
+      render 'index'
     end
   end
 

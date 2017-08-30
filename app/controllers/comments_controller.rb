@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
         format.html { redirect_to topic_path(@topic), notice:'コメントを投稿しました' }
         format.js { render :index }
       else
-        format.html { render :new }
+        @comment.errors.full_messages.each do |msg|
+          flash[:alert] = msg
+        end
+        format.html { redirect_to topic_path(@topic) }
       end
     end
   end
